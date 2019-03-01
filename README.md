@@ -43,18 +43,22 @@ Continuous range
 
 #### `start: number`
 * `readonly`
+
 Start of `range`
 
 #### `end: number`
 * `readonly`
+
 End of `range`
 
 #### `includesStart: boolean`
 * `readonly`
+
 Range includes `start`
 
 #### `includesEnd: boolean`
 * `readonly`
+
 Range includes `end`
 
 #### `constructor(start: number, end: number, [options])`

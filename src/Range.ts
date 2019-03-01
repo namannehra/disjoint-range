@@ -12,7 +12,12 @@ class Range {
         includesStart = true,
         includesEnd = true,
     } = {}) {
-        if (start > end || (start === end && !includesStart || !includesEnd)) {
+        if (
+            Number.isNaN(start) ||
+            Number.isNaN(end) ||
+            start > end ||
+            (start === end && !includesStart || !includesEnd)
+        ) {
             throw new InvalidRangeError(start, end, includesStart, includesEnd)
         }
         this.start = start

@@ -13,15 +13,18 @@
     "license": "MIT",
     "repository": "github:namannehra/disjoint-range",
     "author": "Naman Nehra <naman.nehra98@gmail.com>",
-    "main": "index.js",
+    "main": "DisjointRange.js",
+    "types": "DisjointRange.d.ts",
     "scripts": {
-        "typedoc": "typedoc src/DisjointRange.ts",
-        "build": "webpack --config webpack.config.js"
+        "webpack": "webpack --config webpack.config.js",
+        "dts": "dts-bundle --name DisjointRange --main build/DisjointRange.d.ts --removeSource",
+        "build": "yarn webpack && yarn dts"
     },
     "private": true,
     "devDependencies": {
         "clean-webpack-plugin": "^1.0.1",
         "copy-webpack-plugin": "^5.0.0",
+        "dts-bundle": "^0.7.3",
         "generate-json-webpack-plugin": "^0.3.1",
         "ts-loader": "^5.3.3",
         "typescript": "^3.3.3333",

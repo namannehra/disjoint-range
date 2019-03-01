@@ -31,12 +31,12 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin('build'),
+        new GenerateJsonPlugin('package.json', packageJson, undefined, 4),
         new CopyPlugin([
             {
                 from: '@(LICENSE|README.md)',
             },
         ]),
-        new GenerateJsonPlugin('package.json', packageJson, undefined, 4),
     ],
 }
 

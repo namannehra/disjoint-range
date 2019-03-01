@@ -1,0 +1,28 @@
+{
+    "name": "disjoint-range",
+    "version": "0.0.1",
+    "description": "Disjoint continuous ranges",
+    "keywords": [
+        "disjoint",
+        "range",
+        "continuous"
+    ],
+    "license": "MIT",
+    "repository": "github:namannehra/disjoint-range",
+    "author": "Naman Nehra <naman.nehra98@gmail.com>",
+    "main": "index.js",
+    "scripts": {
+        "typedoc": "typedoc src/DisjointRange.ts",
+        "build": "webpack --config webpack.config.js"
+    },
+    "private": true,
+    "devDependencies": {
+        "clean-webpack-plugin": "^1.0.1",
+        "copy-webpack-plugin": "^5.0.0",
+        "generate-json-webpack-plugin": "^0.3.1",
+        "ts-loader": "^5.3.3",
+        "typescript": "^3.3.3333",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.2.3"
+    }
+}

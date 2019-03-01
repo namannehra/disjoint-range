@@ -1,75 +1,112 @@
-## `class Range`
+# disjoint-range
+Disjoint continuous ranges
+
+## Getting Started
+
+```
+yarn add disjoint-range
+```
+
+or
+
+```
+npm install disjoint-range
+```
+
+## Usage
+
+```js
+const {Range, DisjointRange} = require('disjoint-range')
+
+const dr1 = new DisjointRange()
+    .add(new Range (0, 6))
+    .add(new Range (4, 10))
+
+console.log(dr1.toString()) // [0, 10]
+
+console.log(dr1.includes(5.5)) // true
+
+const dr2 = new DisjointRange()
+    .add(new Range(-10, 20))
+    .remove(dr1)
+
+console.log(dr2.toString()) // [-10, 0), (10, 20]
+```
+
+## API
+
+### `class Range`
 Continuous range
 
-### `start: number`
+#### `start: number`
 * `readonly`
 Start of `range`
 
-### `end: number`
+#### `end: number`
 * `readonly`
 End of `range`
 
-### `includesStart: boolean`
+#### `includesStart: boolean`
 * `readonly`
 Range includes `start`
 
-### `includesEnd: boolean`
+#### `includesEnd: boolean`
 * `readonly`
 Range includes `end`
 
-### `constructor(start: number, end: number, [options])`
+#### `constructor(start: number, end: number, [options])`
 * `options: {includesStart: boolean = true, includesEnd: boolean = true}`
 If `start > end || (start === end && !includesStart || !includesEnd)` then
 throws `InvalidRangeError`
 
-### `equal(other: Range) => boolean`
+#### `equal(other: Range) => boolean`
 Returns `true` if `range` is equal to `other`
 
-### `includes(other: number | Range) => boolean`
+#### `includes(other: number | Range) => boolean`
 Returns `true` if `range` includes `other`
 
-### `clone() => Range`
+#### `clone() => Range`
 Clones the `range`
 
-### `toString() => string`
+#### `toString() => string`
 Converts `range` to `string`
 
-## `class InvalidRangeError`
+### `class InvalidRangeError`
 * `extends Error`
 Thrown by `new Range()`
 
-### `start: number`
+#### `start: number`
 * `readonly`
 
-### `end: number`
+#### `end: number`
 * `readonly`
 
-### `includesStart: boolean`
+#### `includesStart: boolean`
 * `readonly`
 
-### `includesEnd: boolean`
+#### `includesEnd: boolean`
 * `readonly`
 
-## `class DisjointRange`
+### `class DisjointRange`
 Disjoint continuous ranges
 
-### `ranges: Range[]`
+#### `ranges: Range[]`
 * `readonly`
 
-### `equal(other: DisjointRange) => boolean`
+#### `equal(other: DisjointRange) => boolean`
 Returns `true` if `disjointRange` is equal to `other`
 
-### `add(other: number | Range | DisjointRange) => DisjointRange`
+#### `add(other: number | Range | DisjointRange) => DisjointRange`
 Returns union of `disjointRange` and `other`
 
-### `remove(other: number | Range | DisjointRange) => DisjointRange`
+#### `remove(other: number | Range | DisjointRange) => DisjointRange`
 Returns difference of `disjointRange` and `other`
 
-### `intersect(other: number | Range | DisjointRange) => DisjointRange`
+#### `intersect(other: number | Range | DisjointRange) => DisjointRange`
 Returns intersection of `disjointRange` and `other`
 
-### `clone() => DisjointRange`
+#### `clone() => DisjointRange`
 Clones the `disjointRange`
 
-### `toString() => string`
+#### `toString() => string`
 Converts `disjointRange` to `string`

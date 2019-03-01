@@ -17,9 +17,13 @@ npm install disjoint-range
 ```js
 const {Range, DisjointRange} = require('disjoint-range')
 
+const r1 = new Range(0, 6, {includesEnd: false}) // Open end range
+
+const r1 = new Range(4, 10, {includesStart: false}) // Open start range
+
 const dr1 = new DisjointRange()
-    .add(new Range (0, 6))
-    .add(new Range (4, 10))
+    .add(r1)
+    .add(r2)
 
 console.log(dr1.toString()) // [0, 10]
 

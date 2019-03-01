@@ -14,7 +14,6 @@ npm install disjoint-range
 ```
 
 ## Usage
-
 ```js
 const {Range, DisjointRange} = require('disjoint-range')
 
@@ -56,6 +55,7 @@ Range includes `end`
 
 #### `constructor(start: number, end: number, [options])`
 * `options: {includesStart: boolean = true, includesEnd: boolean = true}`
+
 If `start > end || (start === end && !includesStart || !includesEnd)` then
 throws `InvalidRangeError`
 
@@ -73,6 +73,7 @@ Converts `range` to `string`
 
 ### `class InvalidRangeError`
 * `extends Error`
+
 Thrown by `new Range()`
 
 #### `start: number`

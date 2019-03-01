@@ -5,7 +5,10 @@
     "keywords": [
         "disjoint",
         "range",
-        "continuous"
+        "continuous",
+        "union",
+        "intersection",
+        "difference"
     ],
     "license": "MIT",
     "repository": "github:namannehra/disjoint-range",

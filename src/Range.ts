@@ -16,7 +16,7 @@ class Range {
             Number.isNaN(start) ||
             Number.isNaN(end) ||
             start > end ||
-            (start === end && !includesStart || !includesEnd)
+            (start === end && !(includesStart && includesEnd))
         ) {
             throw new InvalidRangeError(start, end, includesStart, includesEnd)
         }
@@ -45,8 +45,8 @@ class Range {
 
     private includesRange(other: Range) {
         return (
-            (this.start < other.start || this.start === other.start && (this.includesStart || !this.includesStart)) &&
-            (this.end > other.end || this.end === other.end && (this.includesEnd || !this.includesEnd))
+            (this.start < other.start || this.start === other.start && (this.includesStart || !other.includesStart)) &&
+            (this.end > other.end || this.end === other.end && (this.includesEnd || !other.includesEnd))
         )
     }
 

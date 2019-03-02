@@ -64,7 +64,7 @@ Range includes `end`
 #### `constructor(start: number, end: number, [options])`
 * `options: {includesStart: boolean = true, includesEnd: boolean = true}`
 
-If `start > end || (start === end && !includesStart || !includesEnd)` then
+If `start > end || (start === end && !(includesStart && includesEnd)` then
 throws `InvalidRangeError`
 
 #### `equal(other: Range) => boolean`

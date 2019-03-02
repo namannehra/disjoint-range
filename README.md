@@ -114,6 +114,9 @@ Returns difference of `disjointRange` and `other`
 #### `intersect(other: number | Range | DisjointRange) => DisjointRange`
 Returns intersection of `disjointRange` and `other`
 
+#### `includes(other: number | Range | DisjointRange) => boolean`
+Returns `true` if `disjointRange` includes `other`
+
 #### `clone() => DisjointRange`
 Clones the `disjointRange`
 

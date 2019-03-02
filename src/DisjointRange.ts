@@ -255,6 +255,48 @@ class DisjointRange {
         return newDisjointRange
     }
 
+    includes(other: number | Range | DisjointRange) {
+        if (other instanceof DisjointRange) {
+            return this.includesDisjointRange(other)
+        }
+        if (other instanceof Range) {
+            return this.includesRange(other)
+        }
+        return this.includesNumber(other)
+    }
+
+    private includesNumber(number: number) {
+        return this.includesRange(new Range(number, number))
+    }
+
+    private includesRange(range: Range) {
+        const disjointRange = new DisjointRange()
+        disjointRange._ranges = [range]
+        return this.includesDisjointRange(disjointRange)
+    }
+
+    private includesDisjointRange(other: DisjointRange) {
+        const currRanges = this._ranges.slice()
+        const otherRanges = other._ranges.slice()
+        while (currRanges.length && otherRanges.length) {
+            const currRange = currRanges[0]
+            const otherRange = otherRanges[0]
+            if (currRange.start > otherRange.start) {
+                return false
+            }
+            if (currRange.end < otherRange.start) {
+                currRanges.shift()
+                continue
+            }
+            if (currRange.includes(otherRange)) {
+                otherRanges.shift()
+                continue
+            }
+            return false
+        }
+        return !otherRanges.length
+    }
+
     clone() {
         const disjointRange = new DisjointRange()
         disjointRange._ranges = this._ranges

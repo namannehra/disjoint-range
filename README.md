@@ -1,6 +1,9 @@
 # disjoint-range
 Disjoint continuous ranges
 
+**Warning:** Package still in testing stage. Might report incorrect results.
+Please file an issue if you encounter a bug.
+
 ## Getting Started
 
 ```

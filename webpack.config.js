@@ -17,6 +17,7 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'build/disjoint-range'),
         filename: 'DisjointRange.js',
+        libraryTarget: 'commonjs2',
     },
     resolve: {
         extensions: ['.ts', '.js'],

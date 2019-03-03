@@ -17,8 +17,11 @@
     "types": "DisjointRange.d.ts",
     "scripts": {
         "webpack": "webpack --config webpack.config.js",
-        "dts": "dts-bundle --name DisjointRange --main build/DisjointRange.d.ts --removeSource",
-        "build": "yarn webpack && yarn dts"
+        "dts": "dts-bundle --name DisjointRange --main build/disjoint-range/DisjointRange.d.ts --removeSource",
+        "build": "yarn webpack && yarn dts",
+        "build-tests": "webpack --config webpack.tests.js",
+        "run-tests": "node build/tests",
+        "test": "yarn build-tests && yarn run-tests"
     },
     "private": true,
     "devDependencies": {

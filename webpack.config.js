@@ -15,7 +15,7 @@ const config = {
     mode: 'production',
     entry: './src/DisjointRange.ts',
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'build/disjoint-range'),
         filename: 'DisjointRange.js',
     },
     resolve: {
@@ -25,12 +25,21 @@ const config = {
         rules: [
             {
                 test: /\.ts$/,
-                use: 'ts-loader',
+                use:  {
+                    loader: 'ts-loader',
+                    options: {
+                        compilerOptions: {
+                            declaration: true,
+                            outDir: 'build/disjoint-range',
+                        },
+                        onlyCompileBundledFiles: true,
+                    },
+                },
             },
         ],
     },
     plugins: [
-        new CleanWebpackPlugin('build'),
+        new CleanWebpackPlugin('build/disjoint-range'),
         new GenerateJsonPlugin('package.json', packageJson, undefined, 4),
         new CopyPlugin([
             {

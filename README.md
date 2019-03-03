@@ -1,8 +1,8 @@
 # disjoint-range
 Disjoint continuous ranges
 
-**Warning:** Package still in testing stage. Might report incorrect results.
-Please file an issue if you encounter a bug.
+**Warning:** Package is still in testing stage. Please open an issue if you
+encounter a bug.
 
 ## Getting Started
 
@@ -37,6 +37,10 @@ const dr2 = new DisjointRange()
     .remove(dr1)
 
 console.log(dr2.toString()) // [-10, 0), (10, 20]
+
+console.log(dr2.includes(15)) // true
+
+console.log(dr2.includes(10)) // false
 ```
 
 ## API
